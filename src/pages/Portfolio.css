@@ -1,0 +1,270 @@
+:root {
+    --cols: 3;
+    --gap: 24px;
+    --tile-h: 320px;
+    --container-w: 1200px;
+}
+
+.portfolio {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: calc((var(--tile-h) * 2) + var(--gap) + 3rem);
+}
+
+.portfolio-title,
+.portfolio-grid,
+.pagination {
+    max-width: var(--container-w);
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    /* (optionnel) padding pour respirer un peu */
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.portfolio-grid {
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: repeat(var(--cols), 1fr);
+    grid-template-rows: repeat(2, var(--tile-h));
+    gap: var(--gap);
+    align-content: start;
+}
+
+/* Chaque carte remplit entièrement sa cellule */
+.project-card {
+    cursor: pointer;
+    width: 100%;
+    background-color: var(--bg);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 16px;
+    padding: 1.2rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.project-card:hover {
+     transform: translateY(-2px);
+  border-color: var(--color1);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.25),
+    0 0 16px rgba(212, 160, 23, 0.25);
+}
+
+/* Image = moitié haute de la carte */
+.project-thumb {
+    flex: 0 0 auto;
+    width: 90%;
+    height: 160px;
+    margin: 0 auto 1rem;
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--panel);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.project-thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    filter: grayscale(1);
+}
+
+.project-thumb img:hover {
+    filter: grayscale(0.2);
+}
+
+/* Corps = moitié basse de la carte */
+.project-body {
+    flex: 1;
+    padding: 14px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.project-title {
+    margin: 0 0 1rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.project-card:hover .project-thumb img {
+    transform: scale(1.05);
+}
+
+.project-desc {
+    flex: 1;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+}
+
+/* Pagination bien ancrée en bas */
+.pagination {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    padding-top: 2rem;
+    font-weight: 600;
+}
+
+.pagination button {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.pagination button:hover {
+    color: var(--color1);
+}
+
+.pagination button:disabled {
+    opacity: 0.1;
+    cursor: not-allowed;
+}
+
+.pagination button:disabled:hover {
+    opacity: 0.1;
+    color: #0f1115;
+}
+
+.pagination .pages {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0 4px;
+}
+
+.pagination .pages button.active {
+    position: relative;
+    color: var(--color1);
+    font-weight: 600;
+    cursor: default;
+}
+
+.pagination .pages button.active::before {
+    content: '';
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--color1);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+/* Modale */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .6);
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    z-index: 50;
+    opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.modal-panel {
+    position: relative;
+    width: min(900px, 96vw);
+    border-radius: 16px;
+    background: var(--bg);
+    border: 1px solid var(--text);
+    overflow: hidden;
+     opacity: 0;
+  transform: scale(0.96) translateY(-8px);
+  animation: modalIn 0.35s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalIn {
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modal-close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 26px;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--color1);
+    cursor: pointer;
+}
+
+
+
+.project-modal {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 16px;
+}
+
+.project-modal>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-height: 420px;
+}
+
+.project-modal-body {
+    padding: 16px;
+}
+
+.project-modal-body h2 {
+    margin: 0 0 8px;
+    justify-self: center;
+    text-decoration: underline var(--color1);
+}
+
+.project-modal-body .muted {
+    color: var(--color1);
+    margin: 0 0 12px;
+}
+
+.project-modal-body p {
+    color: var(--text);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        /* 1 colonne sur mobile */
+    }
+
+    .project-modal {
+        grid-template-columns: 1fr;
+    }
+}
