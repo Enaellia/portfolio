@@ -18,32 +18,35 @@ body {
 }
 
 :root {
-  /* === Thème clair === */
-  --bg: #f8f9fa;
-  --text: #0f1115;
-  --muted: #5a5f6a;
-  --panel: #ffffff;
-  --border: rgba(0, 0, 0, 0.1);
-  --color1: #d4a017; /* ton accent doré */
-  --fond: url(https://images.unsplash.com/photo-1705097565168-fb30476501e5?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    /* === Thème clair === */
+    --contrast: #000;
+    --bg: #f8f9fa;
+    --text: #0f1115;
+    --muted: #5a5f6a;
+    --panel: #ffffff;
+    --border: rgba(0, 0, 0, 0.1);
+    --color1: #d4a017;
+    /* ton accent doré */
+    --fond: url(https://images.unsplash.com/photo-1705097565168-fb30476501e5?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
 }
 
 [data-theme="dark"] {
-  /* === Thème sombre === */
-  --bg: #0f1115;
-  --text: #f8f9fa;
-  --muted: #a3a3a3;
-  --panel: #181b22;
-  --border: rgba(255, 255, 255, 0.1);
-  --color1: #d4a017; 
-  --fond: url(https://images.unsplash.com/photo-1707346310176-52f43d7606ea?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    /* === Thème sombre === */
+    --contrast: #fff;
+    --bg: #0f1115;
+    --text: #f8f9fa;
+    --muted: #a3a3a3;
+    --panel: #181b22;
+    --border: rgba(255, 255, 255, 0.1);
+    --color1: #d4a017;
+    --fond: url(https://images.unsplash.com/photo-1707346310176-52f43d7606ea?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  position: relative;
-  transition: background 0.3s ease, color 0.3s ease;
+    background: var(--bg);
+    color: var(--text);
+    position: relative;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 
@@ -57,14 +60,19 @@ body {
     display: grid;
     grid-template-rows: auto 1fr auto;
 }
+
 main.container {
-  display: flex;
-  flex-direction: column;
-  min-height: 0; /* évite les débordements */
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    justify-content: center;
 }
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
-  color: var(--text)
+
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--text)
 }
 
 .container {
@@ -149,4 +157,22 @@ h1, h2, h3 {
 
 .footer-links a:hover {
     color: var(--text);
+}
+
+
+.page-stack {
+    position: relative;
+}
+
+.page-layer {
+    position: absolute;
+    inset: 0;
+    will-change: opacity;
+}
+
+/* Accessibilité */
+@media (prefers-reduced-motion: reduce) {
+    .page-layer {
+        transition: none !important;
+    }
 }
