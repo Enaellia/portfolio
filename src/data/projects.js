@@ -22,13 +22,22 @@ const projects = [
         date: '2024-09-25',
     },
     {
-        slug: 'sophie-buel',
-        title: 'Sophie Buel',
-        description: 'Refonte galerie, modale, gestion d’images.',
+        slug: 'OhMyFood',
+        title: 'OhMyFood',
+        description: 'bla bla',
         image: '/src/assets/test1.webp',
         date: '2024-09-10',
     },
     
+    {
+        slug: 'Sophie Buel',
+        title: 'Sophie Buel',
+        description: 'bla bla',
+        image: '/src/assets/test1.webp',
+        date: '2024-09-10',
+    },
+
+
 
 
 

@@ -15,6 +15,7 @@
   line-height: 2.25rem;
   font-weight: 600;
   letter-spacing: -0.015em;
+  justify-self: center;
 }
 
 .contact__intro{
