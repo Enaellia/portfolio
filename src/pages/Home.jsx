@@ -1,4 +1,3 @@
-import avatar from '../assets/avatar.jpg'
 import './Home.css'
 import '../styles/global.css'
 
@@ -11,7 +10,7 @@ export default function Home() {
       <div className="hero-inner">
         {/* Avatar */}
         <figure className="hero-image reveal" href="/portfolio">
-          <img src={avatar} alt="Photo de profil d'Enaellia" width="220" height="220" />
+          <img src="/assets/avatar.jpg" alt="Photo de profil d'Enaellia" width="220" height="220" />
         </figure>
 
         {/* Contenu */}
