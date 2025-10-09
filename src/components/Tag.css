@@ -1,0 +1,43 @@
+.tag {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  margin: 0.25rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: default;
+  user-select: none;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem;
+  margin-top:.75rem;
+  justify-content:center; /* ou flex-start selon ton design */
+}
+
+.tag--default {
+  background-color: 
+ color-mix(in oklab, var(--color1), transparent 0%);
+    color: var(--contrast);
+}
+
+/* Variante principale (accent doré) */
+.tag--accent {
+  background-color: var(--accent);
+  color: #111;
+}
+
+/* Variante douce (gris clair pour équilibre visuel) */
+.tag--muted {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--contrast);
+}
+
+.tag:hover {
+  transform: scale(1.05);
+}

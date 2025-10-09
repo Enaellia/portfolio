@@ -6,9 +6,9 @@ export default function About() {
       <div className="container">
         <h1>À propos</h1>
         <p>
-          Ancienne infirmierère passionnée par l’humain, j’ai choisi de me reconvertir 
+          Ancienne <span className="accent">infirmière</span> passionnée par l’humain, j’ai choisi de me reconvertir 
           dans le développement web pour allier logique, créativité et utilité.  
-          Aujourd’hui, je crée des sites clairs, modernes et accessibles, 
+          Aujourd’hui, je crée des sites <span className="accent">clairs, modernes et accessibles</span>, 
           avec une attention particulière portée à l’expérience utilisateur.
         </p>
 

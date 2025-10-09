@@ -101,16 +101,7 @@
     transform: scale(1.05);
 }
 
-.project-desc {
-    flex: 1;
-    color: var(--muted);
-    font-size: 0.95rem;
-    line-height: 1.5;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
-    overflow: hidden;
-}
+
 
 /* Pagination bien ancrée en bas */
 .pagination {
@@ -121,6 +112,9 @@
     padding-top: 2rem;
     font-weight: 600;
 }
+
+
+
 
 .pagination button {
     background: none;
