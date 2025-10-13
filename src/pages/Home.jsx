@@ -30,7 +30,7 @@ export default function Home() {
 
           <div className="hero-actions">
             <a className="btn btn-primary" href="https://github.com/Enaellia?tab=repositories">→ Mon Github</a>
-            <a className="btn btn-ghost" href="./public/assets/cv.pdf" target="_blank" rel="noopener">→ Mon CV</a>
+            <a className="btn btn-ghost"href="/assets/CV.pdf" download="Enaellia-CV.pdf">→ Mon CV</a>
           </div>
 
           
