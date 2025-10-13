@@ -147,3 +147,18 @@
   flex-wrap: wrap;
   justify-self: right;
 }
+
+@media (max-width: 768px) {
+  .hero-inner {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px;
+  }
+
+  .hero-image {
+  width: 150px;
+  height: 150px;
+}
+
+  }
+

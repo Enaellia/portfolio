@@ -12,11 +12,12 @@
 }
 
 .tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:.5rem;
-  margin-top:.75rem;
-  justify-content:center; /* ou flex-start selon ton design */
+  display: flex;
+    flex-wrap: nowrap;
+    gap: .5rem;
+    margin-top: .75rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .tag--default {

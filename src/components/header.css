@@ -25,16 +25,16 @@
 }
 
 .theme-toggle {
-  background: none;
-  border: none;
-  color: var(--text);
-  font-size: 1.4rem;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
 .theme-toggle:hover {
-  transform: rotate(15deg);
+    transform: rotate(15deg);
 }
 
 .logo-text {
@@ -69,4 +69,20 @@
 
 .nav a:hover {
     color: var(--color1);
+}
+
+@media (max-width: 768px) {
+    .nav a {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .logo-text {
+        display: none;
+    }
+
+    .logo-e {
+    position: relative;
+    right: 17px;
+}
 }

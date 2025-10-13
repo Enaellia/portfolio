@@ -4,7 +4,7 @@ const projects = [
     title: 'ArgentBank',
     image: '/assets/argent.png',
     date: '2024-11-15',
-    tags: ['Redux', 'API REST', 'Swagger'], 
+    tags: ['Redux', 'API', 'Swagger'], 
   },
   {
     slug: 'nina-carducci',
@@ -18,14 +18,14 @@ const projects = [
   {
     slug: 'kasa',
     title: 'Kasa',
-    tags: ['React', 'React Router', 'Sass'],
+    tags: ['React', 'Router', 'Sass'],
     image: '/assets/kasa.png',
     date: '2024-09-25',
   },
   {
     slug: 'ohmyfood',
     title: 'OhMyFood',
-    tags: ['HTML', 'Sass', 'Animations CSS'],
+    tags: ['HTML', 'Sass', 'Animations'],
     image: '/assets/test1.webp',
     date: '2024-09-10',
   },

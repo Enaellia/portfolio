@@ -8,13 +8,18 @@ body,
 #root {
     height: 100%;
     width: 100%;
+    margin: 0;
 }
 
 body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
+        font-family: 'Poppins', sans-serif;
     color: #e6e6e6;
     width: 100%;
+    background: var(--bg);
+    color: var(--text);
+    position: relative;
+    transition: background 0.3s ease, color 0.3s ease;
+
 }
 
 :root {
@@ -42,20 +47,14 @@ body {
     --fond: url(https://images.unsplash.com/photo-1707346310176-52f43d7606ea?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
 }
 
-body {
-    background: var(--bg);
-    color: var(--text);
-    position: relative;
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
 
 /* Layout de page */
 .wrapper {
     background-image: var(--fond);
     background-size: cover;
-    width: 80%;
     min-height: 100%;
+    max-width: 1440px;
+    width: 100%;
     justify-self: center;
     display: grid;
     grid-template-rows: auto 1fr auto;
@@ -157,22 +156,4 @@ h3 {
 
 .footer-links a:hover {
     color: var(--text);
-}
-
-
-.page-stack {
-    position: relative;
-}
-
-.page-layer {
-    position: absolute;
-    inset: 0;
-    will-change: opacity;
-}
-
-/* Accessibilité */
-@media (prefers-reduced-motion: reduce) {
-    .page-layer {
-        transition: none !important;
-    }
 }
