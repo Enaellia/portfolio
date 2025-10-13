@@ -104,13 +104,14 @@
       color-mix(in oklab, var(--color1), transparent 40%) 60%);
 }
 
-/* ---------- Boutons ---------- */
+
 .btn {
   display: inline-block;
   padding: .9rem 1.15rem;
   border-radius: 999px;
   line-height: 1;
   font-weight: 600;
+  color: var(--bg);
   text-decoration: none;
   border: 1px solid transparent;
   transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
