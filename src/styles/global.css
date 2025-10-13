@@ -12,47 +12,41 @@ body,
 }
 
 body {
-        font-family: 'Poppins', sans-serif;
-    color: #e6e6e6;
-    width: 100%;
+    font-family: 'Poppins', sans-serif;
     background: var(--bg);
     color: var(--text);
     position: relative;
-    transition: background 0.3s ease, color 0.3s ease;
-
+    transition: background .3s ease, color .3s ease;
 }
 
 :root {
-    /* === Thème clair === */
     --contrast: #000;
     --bg: #f8f9fa;
     --text: #0f1115;
     --muted: #5a5f6a;
     --panel: #ffffff;
-    --border: rgba(0, 0, 0, 0.1);
+    --border: rgba(0, 0, 0, .1);
     --color1: #d4a017;
-    /* ton accent doré */
     --fond: url(https://images.unsplash.com/photo-1705097565168-fb30476501e5?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
 }
 
 [data-theme="dark"] {
-    /* === Thème sombre === */
     --contrast: #fff;
     --bg: #0f1115;
     --text: #f8f9fa;
     --muted: #a3a3a3;
     --panel: #181b22;
-    --border: rgba(255, 255, 255, 0.1);
+    --border: rgba(255, 255, 255, .1);
     --color1: #d4a017;
     --fond: url(https://images.unsplash.com/photo-1707346310176-52f43d7606ea?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
 }
 
-
-/* Layout de page */
+/* -------- Layout -------- */
 .wrapper {
     background-image: var(--fond);
     background-size: cover;
-    min-height: 100%;
+    background-position: center;
+    height: 100%;
     max-width: 1440px;
     width: 100%;
     justify-self: center;
@@ -64,14 +58,23 @@ main.container {
     display: flex;
     flex-direction: column;
     min-height: 0;
+    /* clé pour éviter le “crop” en flex */
     justify-content: center;
+}
+
+/* Permet aux enfants flex/grid de rétrécir sans forcer du rognage */
+.container>*,
+header>*,
+main>*,
+footer>* {
+    min-width: 0;
 }
 
 h1,
 h2,
 h3 {
     font-family: 'Playfair Display', serif;
-    color: var(--text)
+    color: var(--text);
 }
 
 .container {
@@ -80,34 +83,6 @@ h3 {
     padding: 24px;
 }
 
-/* Header */
-.site-header {
-    border-bottom: 1px solid var(--color1);
-    background: var(--bg);
-}
-
-.brand {
-    font-weight: 800;
-    letter-spacing: .3px;
-}
-
-.nav {
-    display: flex;
-    gap: 18px;
-    align-items: center;
-}
-
-.nav a {
-    color: var(--muted);
-    text-decoration: none;
-    padding: 8px 0;
-    border-bottom: 2px solid transparent;
-}
-
-.nav a.active {
-    color: var(--text);
-    border-color: var(--color1);
-}
 
 /* Sections & cartes */
 .section {
@@ -115,7 +90,7 @@ h3 {
 }
 
 .card {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
+    background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .015));
     border: 1px solid var(--color1);
     border-radius: 16px;
     padding: 20px;
@@ -133,7 +108,7 @@ h3 {
 }
 
 .btn:hover {
-    filter: brightness(0.95);
+    filter: brightness(.95);
 }
 
 /* Footer */
@@ -156,4 +131,92 @@ h3 {
 
 .footer-links a:hover {
     color: var(--text);
+}
+
+/* Images & SVG fluides (évite le dépassement) */
+img,
+svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ---------------- Mobile ≤ 480px ---------------- */
+@media (max-width: 480px) {
+
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+
+    #root,
+    .wrapper,
+    .container,
+    header,
+    main,
+    footer {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
+
+    .container,
+    header,
+    main,
+    footer {
+        padding-inline: 16px;
+        padding-left: max(16px, env(safe-area-inset-left));
+        padding-right: max(16px, env(safe-area-inset-right));
+    }
+
+
+    .wrapper {
+        padding-inline: 0;
+        justify-self: stretch;
+    }
+
+    
+    .nav {
+        flex-wrap: wrap;
+        gap: 10px 16px;
+    }
+
+    .nav a {
+        white-space: normal;
+    }
+
+
+    h1 {
+    
+        line-height: 1.15;
+    }
+
+    p {
+        font-size: clamp(.95rem, 3.6vw, 1.05rem);
+        line-height: 1.5;
+    }
+
+    .btn {
+        white-space: normal;
+        max-width: 100%;
+        padding: .6rem .9rem;
+    }
+
+    .card,
+    .section,
+    [class*="hero"],
+    [class*="grid"],
+    [class*="row"] {
+        max-width: 100%;
+    }
+
+
+    .container>*,
+    header>*,
+    main>*,
+    footer>* {
+        min-width: 0;
+    }
 }

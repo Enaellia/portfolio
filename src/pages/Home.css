@@ -156,9 +156,16 @@
   }
 
   .hero-image {
-  width: 150px;
-  height: 150px;
-}
-
+    width: 150px;
+    height: 150px;
   }
 
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-text {
+    text-align: justify;
+  }
+
+}

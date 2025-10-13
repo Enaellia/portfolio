@@ -93,7 +93,7 @@ export default function Portfolio() {
             <img src={active.image} alt={active.title} />
             <div className="project-modal-body">
               <h2>{active.title}</h2>
-              <p className="muted">{new Date(active.date).toLocaleDateString()}</p>
+              <br></br>
               <p>{active.description}</p>
             </div>
           </div>

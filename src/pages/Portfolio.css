@@ -2,20 +2,26 @@
     --cols: 3;
     --gap: 24px;
     --tile-h: 320px;
-    --container-w: 1200px;
+
+}
+
+main.container {
+    
+    min-height: auto;
 }
 
 .portfolio {
-    flex: 1;
+    z-index: 999;
     display: flex;
     flex-direction: column;
-    min-height: calc((var(--tile-h) * 2) + var(--gap) + 3rem);
+    min-height: 100%;
+
 }
 
 .portfolio-title,
 .portfolio-grid,
 .pagination {
-    max-width: var(--container-w);
+
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -27,24 +33,23 @@
 .portfolio-grid {
     flex: 1 1 auto;
     display: grid;
-    grid-template-columns: repeat(var(--cols), 1fr);
-    grid-template-rows: repeat(2, var(--tile-h));
+    grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+    grid-template-rows: auto;
     gap: var(--gap);
     align-content: start;
 }
 
-/* Chaque carte remplit entièrement sa cellule */
 .project-card {
     cursor: pointer;
     width: 100%;
     background-color: var(--bg);
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     border-radius: 16px;
     padding: 1.2rem;
     transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    min-width: 0;
 }
 
 .project-card:hover {
@@ -168,13 +173,18 @@
 }
 
 /* Modale */
+
+:root {
+    --modal-pad: 24px;
+}
+
 .modal-backdrop {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, .6);
     display: grid;
     place-items: center;
-    padding: 24px;
+    padding: var(--modal-pad);
     z-index: 50;
     opacity: 0;
     animation: fadeIn 0.3s ease forwards;
@@ -182,14 +192,16 @@
 
 .modal-panel {
     position: relative;
-    width: min(900px, 96vw);
+    box-sizing: border-box;
+    width: min(900px, calc(100vw - 2 * var(--modal-pad)));
+    max-height: calc(100svh - 2 * var(--modal-pad));
+    overflow: auto;
     border-radius: 16px;
     background: var(--bg);
     border: 1px solid var(--text);
-    overflow: hidden;
     opacity: 0;
-    transform: scale(0.96) translateY(-8px);
-    animation: modalIn 0.35s ease forwards;
+    transform: scale(.96) translateY(-8px);
+    animation: modalIn .35s ease forwards;
 }
 
 @keyframes fadeIn {
@@ -254,13 +266,38 @@
 }
 
 /* Responsive */
-@media (max-width: 900px) {
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-        /* 1 colonne sur mobile */
-    }
 
-    .project-modal {
-        grid-template-columns: 1fr;
-    }
+@media (max-width: 780px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .wrapper {
+    height: auto;
+  }
+}
+@media (max-width: 720px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 400px) {
+  .project-modal {
+    display: grid;
+    grid-template-columns: 1fr;         
+    grid-template-areas:
+      "img"
+      "body";
+    gap: 12px;
+  }
+   .project-modal > img {
+    grid-area: img;
+    width: 100%;
+    height: auto;                       
+    aspect-ratio: 16 / 9;               
+    object-fit: cover;
+  }
+  .project-modal-body {
+    grid-area: body;
+    padding: 12px 16px;
+  }
 }

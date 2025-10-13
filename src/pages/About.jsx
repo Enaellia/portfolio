@@ -17,6 +17,10 @@ export default function About() {
           <strong> JavaScript</strong> et <strong>React</strong>, et j’aime apprendre de nouvelles technologies 
           pour améliorer mes projets et proposer des interfaces toujours plus abouties.
         </p>
+        <p>
+        Je suis à votre disposition pour toute demande de devis, pour travailler ensemble afin de valoriser votre activité, une passion
+        ou tout ce qui vous paraîtra important à mettre en avant et à présenter au monde !
+        </p>
       </div>
     </section>
   )

@@ -22,3 +22,10 @@
   margin-bottom: 1.5rem;
   text-align: justify;
 }
+
+/* Responsive */
+@media (max-width: 780px) {
+    .form-actions {
+      justify-self: center;
+    }
+}
